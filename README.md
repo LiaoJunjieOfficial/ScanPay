@@ -14,6 +14,8 @@ Then to run the Flask app:
 
 `python -m flask run`
 
+### Prototype
+
 ![](./docs/截屏2020-03-16上午2.03.43.png)
 ![](./docs/截屏2020-03-16上午2.03.57.png)
 
