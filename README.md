@@ -49,7 +49,9 @@ RESPONSE (SUCCESS):
 }
 ```
 
+### MongoDB URI
 
+`mongodb+srv://jla597:jla597@scanpay-5whgk.mongodb.net/test?retryWrites=true&w=majority`
 
 ### Experiment / Report
 
