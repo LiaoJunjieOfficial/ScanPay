@@ -49,9 +49,19 @@ RESPONSE (SUCCESS):
 }
 ```
 
-### MongoDB URI
+### Database
 
-`mongodb+srv://jla597:jla597@scanpay-5whgk.mongodb.net/test?retryWrites=true&w=majority`
+URI: `mongodb+srv://jla597:jla597@scanpay-5whgk.mongodb.net/test?retryWrites=true&w=majority`
+
+SCHEMA:
+```
+{
+    _id: ObjectId,
+    label: Int32,
+    name: String,
+    price: Double
+}
+```
 
 ### Experiment / Report
 
