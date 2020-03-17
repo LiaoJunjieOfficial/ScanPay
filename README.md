@@ -43,7 +43,7 @@ RESPONSE (SUCCESS):
 {
     "status": "success",
     "data": {
-        "image": imageURL,
+        "image": path,
         "amount": amount
     },
 }
