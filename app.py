@@ -23,6 +23,45 @@ model.load_state_dict(torch.load(os.path.join('static', 'models', 'model_cpu.pth
 model.eval()
 
 
+def parse_target(target):
+    temp = target[0]
+    target = {'boxes': temp['boxes'], 'names': [], 'prices': []}
+    data = mongo.db.food_price.find({'label': {'$in': temp['labels'].tolist()}})
+    amount = 0
+    for item in data:
+        target['names'].append(item['name'])
+        target['prices'].append(item['price'])
+        amount = amount + item['price']
+    return target, amount
+
+
+def annotate_image(image, target):
+    font = ImageFont.truetype(os.path.join('assets', 'fonts', 'font.ttf'), 24)
+    draw = ImageDraw.Draw(image)
+    boxes = target['boxes']
+    names = target['names']
+    prices = target['prices']
+    for i in range(len(boxes)):
+        p1, p2 = (boxes[i][0], boxes[i][1]), (boxes[i][2], boxes[i][3])
+        p1 = int(p1[0]), int(p1[1])
+        p2 = int(p2[0]), int(p2[1])
+        color = (random.randint(127, 255), random.randint(127, 255), random.randint(127, 255))
+        draw.rectangle((p1, p2), outline=color, width=4)
+        text = names[i] + '  CDN$ ' + str(prices[i])
+        draw.text((p1[0] + 8, p1[1] + 8), text, fill=color, font=font)
+    return image
+
+
+def clear_files(func):
+    def wrapper():
+        for image in os.listdir(os.path.join('static', 'images')):
+            os.remove(os.path.join('static', 'images', image))
+        res = func()
+        return res
+    wrapper.__name__ = func.__name__
+    return wrapper
+
+
 @app.route('/')
 def index():
     if not os.path.exists(os.path.join('static', 'images')):
@@ -31,6 +70,7 @@ def index():
 
 
 @app.route('/', methods=['POST'])
+@clear_files
 def detect():
     if os.listdir(os.path.join('static', 'images')):
         os.remove(os.path.join('static', 'images', os.listdir(os.path.join('static', 'images'))[0]))
@@ -66,33 +106,9 @@ def get_file(filename):
     return send_from_directory(os.path.join('static', 'images'), filename)
 
 
-def parse_target(target):
-    temp = target[0]
-    target = {'boxes': temp['boxes'], 'names': [], 'prices': []}
-    data = mongo.db.food_price.find({'label': {'$in': temp['labels'].tolist()}})
-    amount = 0
-    for item in data:
-        target['names'].append(item['name'])
-        target['prices'].append(item['price'])
-        amount = amount + item['price']
-    return target, amount
-
-
-def annotate_image(image, target):
-    font = ImageFont.truetype(os.path.join('static', 'fonts', 'font.ttf'), 20)
-    draw = ImageDraw.Draw(image)
-    boxes = target['boxes']
-    names = target['names']
-    prices = target['prices']
-    for i in range(len(boxes)):
-        p1, p2 = (boxes[i][0], boxes[i][1]), (boxes[i][2], boxes[i][3])
-        p1 = int(p1[0]), int(p1[1])
-        p2 = int(p2[0]), int(p2[1])
-        color = (random.randint(127, 255), random.randint(127, 255), random.randint(127, 255))
-        draw.rectangle((p1, p2), outline=color, width=4)
-        text = names[i] + '  CDN$ ' + str(prices[i])
-        draw.text((p1[0] + 8, p1[1] + 8), text, fill=color, font=font)
-    return image
+@app.route('/favicon.ico')
+def get_favicon():
+    return send_from_directory(os.path.join('assets', 'icons'), 'favicon.ico')
 
 
 if __name__ == '__main__':
