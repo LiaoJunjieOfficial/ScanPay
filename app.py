@@ -72,8 +72,6 @@ def index():
 @app.route('/', methods=['POST'])
 @clear_files
 def detect():
-    if os.listdir(os.path.join('static', 'images')):
-        os.remove(os.path.join('static', 'images', os.listdir(os.path.join('static', 'images'))[0]))
     image = request.files['image']
     if image and ('.' in image.filename and image.filename.rsplit('.', 1)[1] in {'jpeg', 'jpg'}):
         path = os.path.join('static', 'images', 'image') + str(random.randrange(1 << 16))
