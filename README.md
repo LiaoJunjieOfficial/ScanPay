@@ -35,7 +35,7 @@ RESPONSE (FAIL):
     "data": {
         "image": null,
         "amount": null
-    },
+    }
 }
 ```
 RESPONSE (SUCCESS):
@@ -45,7 +45,7 @@ RESPONSE (SUCCESS):
     "data": {
         "image": path,
         "amount": amount
-    },
+    }
 }
 ```
 
