@@ -70,11 +70,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
-        $('#food').change(function () {
-                let reader = new FileReader();
-                reader.onload = ev => $("#foodPreview").attr('src', ev.target.result);
-                reader.readAsDataURL(this.files[0]);
-        });
         $(function() {
             $('#detect').on('click', ev => {
                 let formData = new FormData();
@@ -101,6 +96,11 @@
                     contentType: false,
                 });
                 ev.preventDefault();
+            });
+            $('#food').change(function () {
+                let reader = new FileReader();
+                reader.onload = ev => $("#foodPreview").attr('src', ev.target.result);
+                reader.readAsDataURL(this.files[0]);
             });
         });
     </script>
