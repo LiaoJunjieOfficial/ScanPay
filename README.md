@@ -33,11 +33,10 @@ RESPONSE (FAIL):
 {
     "status": "fail",
     "data": {
+        "image": null,
         "labels": null,
         "names": null,
-        "prices": null,
-        "image": null,
-        "amount": null
+        "prices": null
     }
 }
 ```
@@ -46,11 +45,10 @@ RESPONSE (SUCCESS):
 {
     "status": "success",
     "data": {
+        "image": path,
         "labels": [label],
         "names": [name],
-        "prices": [price],
-        "image": path,
-        "amount": amount
+        "prices": [price]
     }
 }
 ```
