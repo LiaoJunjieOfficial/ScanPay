@@ -2,7 +2,7 @@
 
 To download the repository:
 
-`git clone https://github.com/LiaoJunjieOfficial/ScanPay.git`
+`git clone https://github.com/leoofficial/food_detection.git`
 
 Then you need to install the basic dependencies to run the project on your system:
 
