@@ -27,12 +27,10 @@ def parse_target(target):
     temp = target[0]
     target = {'labels': temp['labels'].tolist(), 'boxes': temp['boxes'].tolist(), 'names': [], 'prices': []}
     data = mongo.db.food_price.find({'label': {'$in': temp['labels'].tolist()}})
-    amount = 0
     for item in data:
         target['names'].append(item['name'])
         target['prices'].append(item['price'])
-        amount = amount + item['price']
-    return target, amount
+    return target
 
 
 def annotate_image(image, target):
@@ -78,7 +76,7 @@ def detect():
         image.save(path)
         image = Image.open(path).convert('RGB')
         target = model([transforms.ToTensor()(image)])
-        target, amount = parse_target(target)
+        target = parse_target(target)
         image = annotate_image(image, target)
         os.remove(path)
         path = path + '_annotated.jpg'
@@ -86,21 +84,19 @@ def detect():
         return json.jsonify({
             'status': 'success',
             'data': {
+                'image': path,
                 'labels': target['labels'],
                 'names': target['names'],
                 'prices': target['prices'],
-                'image': path,
-                'amount': amount,
             }
         })
     return json.jsonify({
         'status': 'fail',
         'data': {
+            'image': None,
             'labels': None,
             'names': None,
             'prices': None,
-            'image': None,
-            'amount': None,
         }
     })
 
