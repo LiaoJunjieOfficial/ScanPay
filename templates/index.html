@@ -89,7 +89,6 @@
                         } else {
                             $('#success').show();
                             $('#foodWithBBoxes').attr('src', res['data']['image']);
-
                             $('#amount').text(`Total amount is CDN$
                             ${res['data']['prices'].reduce((accumulator, currentValue) => accumulator + currentValue)}`);
                         }
