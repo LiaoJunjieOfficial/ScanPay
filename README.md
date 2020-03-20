@@ -33,6 +33,9 @@ RESPONSE (FAIL):
 {
     "status": "fail",
     "data": {
+        "labels": null,
+        "names": null,
+        "prices": null,
         "image": null,
         "amount": null
     }
@@ -43,6 +46,9 @@ RESPONSE (SUCCESS):
 {
     "status": "success",
     "data": {
+        "labels": [label],
+        "names": [name],
+        "prices": [price],
         "image": path,
         "amount": amount
     }

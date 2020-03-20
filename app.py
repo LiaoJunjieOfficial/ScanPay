@@ -25,7 +25,7 @@ model.eval()
 
 def parse_target(target):
     temp = target[0]
-    target = {'boxes': temp['boxes'], 'names': [], 'prices': []}
+    target = {'labels': temp['labels'].tolist(), 'boxes': temp['boxes'].tolist(), 'names': [], 'prices': []}
     data = mongo.db.food_price.find({'label': {'$in': temp['labels'].tolist()}})
     amount = 0
     for item in data:
@@ -86,6 +86,9 @@ def detect():
         return json.jsonify({
             'status': 'success',
             'data': {
+                'labels': target['labels'],
+                'names': target['names'],
+                'prices': target['prices'],
                 'image': path,
                 'amount': amount,
             }
@@ -93,6 +96,9 @@ def detect():
     return json.jsonify({
         'status': 'fail',
         'data': {
+            'labels': None,
+            'names': None,
+            'prices': None,
             'image': None,
             'amount': None,
         }
