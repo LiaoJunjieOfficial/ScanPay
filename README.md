@@ -1,23 +1,6 @@
-# Food Detection Using Faster R-CNN
+# ScanPay: Food Detection Using Faster R-CNN
 
-To download the repository:
-
-`git clone https://github.com/leoofficial/food_detection.git`
-
-Then you need to install the basic dependencies to run the project on your system:
-
-`
-pip install -r requirements.txt
-`
-
-Then to run the Flask app:
-
-`python -m flask run`
-
-### Prototype
-
-![](./docs/截屏2020-03-16上午2.03.43.png)
-![](./docs/截屏2020-03-16上午2.03.57.png)
+ScanPay is food detection application based on deep learning.
 
 ### API
 
@@ -66,6 +49,29 @@ SCHEMA:
     price: Double
 }
 ```
+
+### Web App
+
+To download the repository:
+
+`git clone https://github.com/leoofficial/food_detection.git`
+
+Then you need to install the basic dependencies to run the project on your system:
+
+`
+pip install -r requirements.txt
+`
+
+Then to run the Flask app:
+
+`python -m flask run`
+
+![](./docs/截屏2020-03-16上午2.03.43.png)
+![](./docs/截屏2020-03-16上午2.03.57.png)
+
+### Mobile App
+
+`https://github.com/JerrickCai/foodRecognitionApp`
 
 ### Experiment / Report
 
