@@ -1,10 +1,10 @@
 # ScanPay: Food Detection Using Faster R-CNN
 
-ScanPay is food detection application based on deep learning.
+ScanPay is a food detection application based on deep learning.
 
 ### API
 
-URL: `http://127.0.0.1:5000/ `
+URL: `http://127.0.0.1:5000`
 
 METHOD: POST
 
