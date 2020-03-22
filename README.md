@@ -1,6 +1,6 @@
 # ScanPay: Food Detection Using Faster R-CNN
 
-ScanPay is a food detection application based on deep learning.
+ScanPay is a food detection platform based on deep learning.
 
 ### API
 
