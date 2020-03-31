@@ -54,7 +54,7 @@ SCHEMA:
 
 To download the repository:
 
-`git clone https://github.com/leoofficial/food_detection.git`
+`git clone https://github.com/leoofficial/food-detection.git`
 
 Then you need to install the basic dependencies to run the project on your system:
 
@@ -71,7 +71,7 @@ Then to run the Flask app:
 
 ### Mobile App
 
-`https://github.com/JerrickCai/foodRecognitionApp`
+[Mobile app developed by Jerrick](https://github.com/JerrickCai/foodRecognitionApp)
 
 ### Experiment / Report
 
