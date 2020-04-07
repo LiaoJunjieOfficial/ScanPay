@@ -26,7 +26,7 @@ if __name__ == '__main__':
         running_loss = 0.0
         for i, data in enumerate(train_loader, 0):
             images, targets = data
-            images = list(image.to(device) for image in images)
+            images = [image.to(device) for image in images]
             targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
             optimizer.zero_grad()
             loss_dict = model(images, targets)
