@@ -12,7 +12,7 @@ from data import get_train_test_loader
 if __name__ == '__main__':
     # ssl._create_default_https_context = ssl._create_unverified_context
     device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
-    train_loader, test_loader = get_train_test_loader('dataset')
+    train_loader, test_loader = get_train_test_loader('dataset', batch_size=16, num_workers=4)
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
     in_features = model.roi_heads.box_predictor.cls_score.in_features
     model.roi_heads.box_predictor = FastRCNNPredictor(in_features, 100)
