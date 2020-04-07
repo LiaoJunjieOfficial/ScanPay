@@ -21,7 +21,7 @@ if __name__ == '__main__':
     weight_decay = 0.0001
     optimizer = torch.optim.SGD(params, lr=0.0001, momentum=0.9, weight_decay=weight_decay)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=32, gamma=0.5)
-    epochs = 128
+    epochs = 64
     for epoch in range(epochs):
         running_loss = 0.0
         for i, data in enumerate(train_loader, 0):

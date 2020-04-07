@@ -47,7 +47,7 @@ class UECFOOD100(Dataset):
 
 
 def get_train_test_loader(
-        root, batch_size=2, augment=True, test_ratio=0.2, shuffle=True,
+        root, batch_size=16, augment=True, test_ratio=0.2, shuffle=True,
         num_workers=4, collate_fn=utils.collate_fn, pin_memory=False):
     train_transform = T.Compose([
         T.ToTensor(),
