@@ -96,6 +96,4 @@ Then to run the Flask app:
 
 [Lecture on Detection](https://www.youtube.com/watch?v=nDPWywWRIRo)
 
-[Neural Network Basics](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)
-
 [Finetune a Pre-trained Model](https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html)
