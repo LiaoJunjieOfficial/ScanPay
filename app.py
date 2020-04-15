@@ -18,7 +18,7 @@ model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
 in_features = model.roi_heads.box_predictor.cls_score.in_features
 model.roi_heads.box_predictor = FastRCNNPredictor(in_features, 100)
 # model.load_state_dict(torch.load(
-#     os.path.join('static', 'models','model_gpu.pt' if torch.cuda.is_available() else 'model_cpu.pth')))
+#     os.path.join('static', 'models','model_gpu.pth' if torch.cuda.is_available() else 'model_cpu.pth')))
 model.load_state_dict(torch.load(os.path.join('static', 'models', 'model_cpu.pth')))
 model.eval()
 
