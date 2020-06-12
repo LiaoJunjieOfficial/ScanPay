@@ -17,9 +17,9 @@ class UECFOOD100(Dataset):
     def __init__(self, root, transform=T.ToTensor()):
         self.root = root
         self.transform = transform
-        self.images = list(sorted(os.listdir(os.path.join(root, "images")),
+        self.images = list(sorted(os.listdir(os.path.join(root, 'images')),
                                   key=lambda file: int(re.sub('\\D', '', file))))
-        self.annotations = list(sorted(os.listdir(os.path.join(root, "annotations")),
+        self.annotations = list(sorted(os.listdir(os.path.join(root, 'annotations)),
                                        key=lambda file: int(re.sub('\\D', '', file))))
 
     def __getitem__(self, idx):
