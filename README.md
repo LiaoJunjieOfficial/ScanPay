@@ -36,20 +36,6 @@ RESPONSE (SUCCESS):
 }
 ```
 
-### Database
-
-URI: `mongodb+srv://jla597:jla597@scanpay-5whgk.mongodb.net/test?retryWrites=true&w=majority`
-
-SCHEMA:
-```
-{
-    _id: ObjectId,
-    label: Int32,
-    name: String,
-    price: Double
-}
-```
-
 ### Web App
 
 To download the repository:
@@ -73,29 +59,6 @@ Then to run the Flask app:
 
 [Mobile app developed by Jerrick](https://github.com/JerrickCai/foodRecognitionApp)
 
-### Experiment / Report
-
-[Google Docs](https://docs.google.com/document/d/1Xrz1bQRj7HlFYtqOIWdIlWOK060So0lePB57yRNKV8s)
-
-
 ### Datasets
 
-[Preprocessed Dataset](https://drive.google.com/file/d/101hzCMlGhmegbX-8san278gAVEds_Qit/view?usp=sharing)
-
-
-### Papers
-
-[R-CNN](https://arxiv.org/pdf/1311.2524.pdf) (Related)
-
-[Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf) (Related)
-
-[Faster R-CNN](https://arxiv.org/pdf/1506.01497.pdf)
-
-
-### Tutorials
-
-[Lecture on Detection](https://www.youtube.com/watch?v=nDPWywWRIRo)
-
-[Neural Network Basics](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html)
-
-[Finetune a Pre-trained Model](https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html)
+[UEC FOOD 100](http://foodcam.mobi/dataset100.html)
